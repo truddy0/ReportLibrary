@@ -7,8 +7,6 @@ Printer::~Printer()
 
 void Printer::initialize()
 {
-    // initial the printer
-    _printer.setResolution(QPrinter::HighResolution);
     _printer.setOutputFormat(QPrinter::PdfFormat);
     _printer.setPaperSize(QPrinter::A4);
 }

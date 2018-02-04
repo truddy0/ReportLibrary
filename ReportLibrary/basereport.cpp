@@ -1,4 +1,5 @@
 #include "Basereport.h"
+#include "Printer.h"
 
 BaseReport::BaseReport(int width, int height, int wordingHieght)
 {
@@ -12,7 +13,7 @@ BaseReport::~BaseReport()
 
 }
 
-QGraphicsView *BaseReport::buildContainer(int width, int height)
+QGraphicsView *BaseReport::buildContainer()
 {
     QGraphicsView *reportView = new QGraphicsView();
     reportView->resize(_width, _height);
@@ -33,7 +34,7 @@ bool BaseReport::isNeedNewPage(int currentY, QGraphicsView *parentView, int &cur
     }
 }
 
-void BaseReport::buildComponentOnNewPage(QWidget *currentComponent, QGraphicsView *newParentView, int currentX, int *currentY)
+void BaseReport::buildComponentOnNewPage(QWidget *currentComponent, QGraphicsView *newParentView, int currentX, int &currentY)
 {
     currentComponent->setParent(newParentView);
     currentComponent->setGeometry(currentX, currentY, currentComponent->width(), currentComponent->height());
@@ -42,7 +43,7 @@ void BaseReport::buildComponentOnNewPage(QWidget *currentComponent, QGraphicsVie
 
 void BaseReport::print(QList<QGraphicsView *> parentView, QString fileName)
 {
-
+    Printer::getInstance().print(parentView, fileName);
 }
 
 QList<QGraphicsView *> BaseReport::getPages()

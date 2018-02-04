@@ -6,7 +6,6 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QPainter>
 
-
 class Printer
 {
 public:
@@ -16,16 +15,16 @@ public:
         return instance;
     }
     ~Printer();
+
     void initialize();
     void print(QList<QGraphicsView*> parentView, QString name);
 private:
-    Printer();
+
     Printer(const Printer &);
     Printer& operator=(const Printer &);
 
     QPrinter _printer;
     QPainter _painter;
-
 };
 
 #endif // PRINTER_H
