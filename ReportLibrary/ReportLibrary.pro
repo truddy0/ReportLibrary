@@ -28,13 +28,15 @@ SOURCES += \
     Basereport.cpp \
     Mainwindow.cpp \
     Printer.cpp \
-    Component/Picture.cpp
+    Component/Picture.cpp \
+    Component/Title.cpp
 
 HEADERS += \
     Basereport.h \
     Mainwindow.h \
     Printer.h \
-    Component/Picture.h
+    Component/Picture.h \
+    Component/Title.h
 
 FORMS += \
         mainwindow.ui
